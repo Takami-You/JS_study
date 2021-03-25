@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+        <title></title>
+        <style>
+            *{
+                padding: 0px;
+				margin: 0px;
+            }
+        </style>
+        <script>
+            /*
+                强制类型转换
+                -指将一个数据类型强制转换为其他的数据类型
+                -类型转换主要指，将其他的数据类型转换为
+                    String Number Bllolean
+            */
+
+            /*
+                将其他的数据类型转换为String
+                 方式一：
+                    -调用被转换数据类型的toSring()方法
+                    -该方法不会影响到原变量，它会将转换的结果返回
+                    -但是注意：null和undefined这两个值没有toString方法，调用会报错
+
+                 方式二：
+                    -调用String()函数，并将被转换的数据作为参数传递给函数
+                    -使用String()函数做强制类型转换时，
+                        对于Number和Boolean，实际就是调用toString方法
+                        对于Null和undefined，就不会调用toString方法
+                            null直接转换为“null”
+                            undefined直接转换为“undefined”
+            */
+
+            var a = 123;
+            
+            //调用a的toString()方法
+            //调用XXX的YYY()方法，就是XXX.YYY()
+            b = a.toString();
+
+            a = true;
+            a = a.toString();
+
+            a = null;
+            //a = a.toString(); 报错
+
+            a = undefined;
+            //a = a.toString(); 报错
+
+            a = 123;
+
+            //调用String函数，来将a转换为字符串
+            String(a);
+
+            console.log(typeof a);
+            console.log(a);
+
+
+            /*
+                将其他的数据类型转换为Number
+                 转换方式一：
+                    使用Number()函数
+                        字符串-->数字
+                            1.如果是纯数字的字符串，则直接将其转换为数字
+                            2.如果字符串中有非数字的内容，则转换为NaN
+                            3.如果字符串是一个空串或全是空格，则转换为0
+                        布尔-->数字
+                            true 转成1
+                            false 转成0
+                        Null-->数字     0
+                        undefined-->数字    NaN
+
+                转换方式二：
+                    -这种方式专门用来对付字符串
+                    -parseint() 把一个字符转换为一个整数
+                    -parseFloat() 把一个字符串转换为一个浮点数
+                    -对于非String使用parseInt()或parseFloat()
+                        它会现将其转换为String，然后再操作
+            */
+
+            var b = "123";
+
+            //调用Number()函数来将a转换为Number类型
+            b = Number(b);
+
+            console.log(typeof b);
+            console.log(b);
+
+
+            var c = "123px";
+            //var c = "123p567x"; 123
+            //var c = "123.456px"; 123
+            //var c = "b123px"; NaN
+
+            //调用parseInt()函数来将a转换为Number类型
+            /*
+                parseInt()可以将一个字符串中的有效的整数内容取出来
+            */
+            c = parseInt(c); //123
+
+            console.log(typeof c);
+            console.log(c);
+
+
+            var d = "123.456px"
+            //var d = "123.456.789px" 123.456
+            
+            //parseFloat()和parseInt()类似，不同的是它可以获得有效小数
+            d = parseFloat(d);
+            console.log(typeof d);
+            console.log(d);
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
